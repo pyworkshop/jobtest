@@ -1,0 +1,51 @@
+<h2>Details for {{repo.info.full_name}}</h2>
+
+<table class="kg-table kg-table-horizontal detail-table">
+
+  <tbody>
+
+    <tr>
+      <td><strong>Name</strong></td>
+      <td>{{repo.info.name}}</td>
+    </tr>
+
+    <tr>
+      <td><strong>Url</strong></td>
+      <td>{{repo.info.html_url}}</td>
+    </tr>
+
+    <tr>
+      <td><strong>Created</strong></td>
+      <td>{{repo.info.created_at}}</td>
+    </tr>
+
+    <tr>
+      <td><strong>Language</strong></td>
+      <td>{{repo.info.language}}</td>
+    </tr>
+
+    <tr>
+      <td><strong>Followers</strong></td>
+      <td>
+	<span><i class="fa fa-star"></i> {{repo.info.stargazers_count}}</span>
+	<span><i class="fa fa-code-fork"></i> {{repo.info.forks_count}}</span>
+      </td>
+    </tr>
+
+    <tr>
+      <td><strong>Description</strong></td>
+      <td>{{repo.info.description}}</td>
+    </tr>
+
+    <tr>
+      <td colspan="2">  <div google-chart chart="repo.charts" class="chartContainer"></div></td>
+    </tr>
+
+  </tbody>
+</table>
+
+
+
+
+
+

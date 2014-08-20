@@ -1,0 +1,278 @@
+.kg-menu-open{ 
+  > ul {
+    left: 0;
+    top: 0;
+    visibility: visible;
+    &:focus {
+      outline: 0;
+    }
+  }
+}
+
+.kg-menu-can-have-children{
+  > .kg-menu-label:after {
+    content: '\25B8';
+    float: right;
+    /* These specific fonts have the Unicode char we need. */
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'DejaVu Sans',
+    sans-serif;
+    margin-right: -20px;
+    margin-top: -1px;
+  }
+  > .kg-menu-label {
+    padding-right: 30px;
+  }
+}
+
+.kg-menu-separator {
+  background-color: #dfdfdf;
+  display: block;
+  height: 1px;
+  font-size: 0;
+  margin: 7px 2px;
+  overflow: hidden;
+}
+
+.kg-menu-hidden {
+  display: none;
+}
+
+/* FIXED MENU */
+.kg-menu-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+
+/* HORIZONTAL MENU CODE */
+
+/* Initial menus should be inline-block so that they are horizontal */
+.kg-menu-horizontal{ 
+  li {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: middle;
+    /* Submenus should still be display: block; */
+    li{
+      display: block;
+      /* Submenus should be horizontal separator again */
+      &.kg-menu-separator {
+        height: 1px;
+        width: auto;
+        margin: 7px 2px;
+      }
+    }
+    /* Adjusting separator for vertical menus */
+    &.kg-menu-separator {
+      height: 50%;
+      width: 1px;
+      margin: 0 7px;
+    }
+  }
+
+  > .kg-menu-children{
+    > .kg-menu-can-have-children{
+      /*Add extra padding to elements that have the arrow so that the hover looks nice*/
+      > .kg-menu-label{
+        padding-right: 30px;
+        /* Content after should be down arrow */
+        &:after{
+	  content: "\25BE";
+	}
+      }
+    }
+  }
+}
+
+.kg-menu{
+  ul{
+    position: absolute;
+    visibility: hidden;
+    left: -10000px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    top: -10000px;
+    z-index: 1;
+  }
+  > ul{ 
+    position: relative; 
+  }
+  li{ 
+    position: relative; 
+    &.kg-menu-disabled{
+      >a{
+        background-image: none;
+    	border-color: transparent;
+    	cursor: default;
+	color: @btn-font-light-ash;
+      }
+      a{
+        &:hover{
+          background: @btn-bg-white;
+  	  color:@btn-font-light-ash;
+	}
+	&:focus{
+          background: @btn-bg-white;
+  	  color:@btn-font-light-ash;
+	}
+      }
+    }
+    a{ 
+      padding: 5px 20px; 
+      &:hover{
+        background:@btn-bg-light-ash;
+      }
+      &:focus{
+        background:@btn-bg-light-ash;
+      }
+    }
+  }
+  a,
+  .kg-menu-heading {
+    display: block;
+    color: inherit;
+    line-height: 1.5em;
+    padding: 5px 20px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  a{
+    border: 1px solid transparent;
+    border-left: none;
+    border-right: none;
+    color: @btn-font-ash;
+  }
+  .kg-menu-heading {
+    color: @menu-font-heading;
+    text-transform: uppercase;
+    font-size: 90%;
+    margin-top: 0.5em;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: @menu-border-heading;
+  }
+  .kg-menu-selected{
+    a{
+      color: @btn-font-white;
+    }
+  }
+
+  .kg-menu-can-have-children{
+    > li{
+      &:after{
+        color: @btn-font-ash;
+      }
+      &:hover{
+        &:after{
+	  color: @btn-font-ash;
+	}
+      }
+    }
+    > a{
+      &:after{
+        color: @btn-font-light-ash;
+      }
+    }
+  }
+  
+  .kg-menu-open {
+    background: #dedede;
+  }
+
+  &.kg-menu-horizontal{
+    border: none;
+    .kg-menu-heading{
+      border: none;
+    }
+    > .kg-menu-heading{
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      margin: 0;
+      vertical-align: middle;
+    }
+    > ul {
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      vertical-align: middle;
+    }
+    li{
+      .kg-menu-children {
+        background: @btn-bg-white;
+	border: @btn-bg-ash 1px solid;
+      }
+    }
+  }
+  &.kg-menu-open {
+    visibility: visible;
+    z-index: 2;
+    width: 100%;
+    background:@btn-bg-white;
+    border: @btn-bg-ash 1px solid;
+    &.kg-menu-fixed {
+      border: none;
+      border-bottom: @btn-bg-ash 1px solid;
+    }
+  }
+}
+
+
+.kg-paginator {
+  /* `kg-g` Grid styles */
+  letter-spacing: -0.31em; /* Webkit: collapse white-space between units */
+  *letter-spacing: normal; /* reset IE < 8 */
+  *word-spacing: -0.43em; /* IE < 8: collapse white-space between units */
+  text-rendering: optimizespeed; /* Webkit: fixes text-rendering: optimizeLegibility */
+
+  /* `kg-paginator` Specific styles */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  /* `kg-u` Grid styles */
+  li {
+    display: inline-block;
+    *display: inline; /* IE < 8: fake inline-block */
+    zoom: 1;
+    letter-spacing: normal;
+    word-spacing: normal;
+    vertical-align: top;
+    text-rendering: auto;
+  }
+
+  .kg-button {
+    border-radius: 0;
+    padding: 0.8em 1.4em;
+    vertical-align: top;
+    height: 1.1em;
+    &:focus{
+      outline-style: none;
+    }
+    &:active{
+      outline-style: none;
+    }
+  }
+
+  .prev{
+    color: @menu-font-next;
+    text-shadow: 0 -1px 0 rgba(0,0,0, 0.45);
+    border-radius: 2px 0 0 2px;
+  }
+
+  .next{
+    color: @menu-font-next;
+    text-shadow: 0 -1px 0 rgba(0,0,0, 0.45);
+    border-radius: 2px 0 0 2px;
+  }
+}
+
+.opera-only :-o-prefocus,
+.kg-paginator {
+  word-spacing: -0.43em;
+}
+

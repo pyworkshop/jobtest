@@ -1,0 +1,14 @@
+{
+  "name": "job-test",
+  "description": "my job test for Unleashed Software",
+  "version": "0.0.1",
+  "homepage": "https://github.com/pyworkshop/job-test",
+  "private": true,
+  "dependencies": {
+    "angular": "1.2.x",
+    "less": "1.7.x",
+    "angular-route": "~1.2.x",
+    "angular-google-chart": "0.0.10",
+    "angular-resource": "~1.2.x"
+  }
+}

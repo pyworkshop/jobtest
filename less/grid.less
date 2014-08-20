@@ -1,0 +1,332 @@
+/*csslint regex-selectors:false, known-properties:false,
+duplicate-properties:false*/
+
+.kg-g {
+/**
+ * 1. Webkit: collapse white-space between units
+ * 2. Webkit: fixes text-rendering:optimizeLegibility
+ * 3. The following font stack makes Kungpao Grids work on all known
+ *    environments.
+ * 4. Use flexbox when possible to avoid `letter-spacing` side-effects.
+ *    NOTE: Firefox (as of 25) does not currently support flex-wrap, so the
+ *    `-moz-` prefix version is omitted.
+ * 5. IE10 uses display: flexbox
+ */
+    letter-spacing: -0.31em; /* 1 */
+    text-rendering: optimizespeed; /* 2 */
+    font-family: @grid-font-family; /* 3 */
+    display: -webkit-flex;/* 4 */
+    -webkit-flex-flow: row wrap;
+    display: -ms-flexbox;/* 5 */
+    -ms-flex-flow: row wrap;
+    display: -moz-flex;
+    display: -o-flex;
+    -o-flex-flow: row wrap;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+/* Opera as of 12 on Windows needs word-spacing.
+ * The ".opera-only" selector is used to prevent actual prefocus styling
+ * and is not required in markup.
+ */
+.opera-only :-o-prefocus,
+.kg-g {
+    word-spacing: -0.43em;
+}
+
+.kg-u {
+    display: inline-block;
+    *display: inline; /* IE < 8: fake inline-block */
+    zoom: 1;
+    letter-spacing: normal;
+    word-spacing: normal;
+    vertical-align: top;
+    text-rendering: auto;
+}
+
+/*
+Resets the font family back to the OS/browser's default sans-serif font,
+this the same font stack that Normalize.css sets for the `body`.
+*/
+.kg-g [class *= "kg-u"] {
+  font-family: @font-family;
+}
+
+.create-u(1);
+.create-u(2);
+.create-u(3);
+.create-u(4);
+.create-u(5);
+.create-u(6);
+.create-u(8);
+.create-u(12);
+.create-u(24);
+.kg-u-1{
+  &:extend(.whole-row);
+  &:extend(.kg-u);
+}
+
+
+//.create-u-media(1, ~"xx");
+.create-u-media(2, ~"xx");
+.create-u-media(3, ~"xx");
+.create-u-media(4, ~"xx");
+.create-u-media(5, ~"xx");
+.create-u-media(6, ~"xx");
+.create-u-media(8, ~"xx");
+.create-u-media(12, ~"xx");
+.create-u-media(24, ~"xx");
+
+//.create-u-media(1, ~"xs");
+.create-u-media(2, ~"xs");
+.create-u-media(3, ~"xs");
+.create-u-media(4, ~"xs");
+.create-u-media(5, ~"xs");
+.create-u-media(6, ~"xs");
+.create-u-media(8, ~"xs");
+.create-u-media(12, ~"xs");
+.create-u-media(24, ~"xs");
+
+//.create-u-media(1, ~"sm");
+.create-u-media(2, ~"sm");
+.create-u-media(3, ~"sm");
+.create-u-media(4, ~"sm");
+.create-u-media(5, ~"sm");
+.create-u-media(6, ~"sm");
+.create-u-media(8, ~"sm");
+.create-u-media(12, ~"sm");
+.create-u-media(24, ~"sm");
+
+//.create-u-media(1, ~"md");
+.create-u-media(2, ~"md");
+.create-u-media(3, ~"md");
+.create-u-media(4, ~"md");
+.create-u-media(5, ~"md");
+.create-u-media(6, ~"md");
+.create-u-media(8, ~"md");
+.create-u-media(12, ~"md");
+.create-u-media(24, ~"md");
+
+//.create-u-media(1, ~"lg");
+.create-u-media(2, ~"lg");
+.create-u-media(3, ~"lg");
+.create-u-media(4, ~"lg");
+.create-u-media(5, ~"lg");
+.create-u-media(6, ~"lg");
+.create-u-media(8, ~"lg");
+.create-u-media(12, ~"lg");
+.create-u-media(24, ~"lg");
+
+//.create-u-media(1, ~"sl");
+.create-u-media(2, ~"sl");
+.create-u-media(3, ~"sl");
+.create-u-media(4, ~"sl");
+.create-u-media(5, ~"sl");
+.create-u-media(6, ~"sl");
+.create-u-media(8, ~"sl");
+.create-u-media(12, ~"sl");
+.create-u-media(24, ~"sl");
+
+
+
+@media (max-width: @screen-xx-max) {
+  .kg-xx-1-1,
+  .kg-xx-1{
+    width:100%;
+  }
+}
+
+@media (min-width: @screen-xs-min) {
+  .kg-xs-1-1,
+  .kg-xs-1{
+    width:100%;
+  }
+}
+
+@media (min-width: @screen-sm-min) {
+  .kg-sm-1-1,
+  .kg-sm-1{
+    width:100%;
+  }
+}
+
+@media (min-width: @screen-md-min) {
+  .kg-md-1-1,
+  .kg-md-1{
+    width:100%;
+  }
+}
+
+@media (min-width: @screen-lg-min) {
+  .kg-lg-1-1,
+  .kg-lg-1{
+    width:100%;
+  }
+}
+
+@media (min-width: @screen-sl-min) {
+  .kg-sl-1-1,
+  .kg-sl-1{
+    width:100%;
+  }
+}
+
+.kg-hidden-xx{
+  @media (max-width: @screen-xx-max){ 
+    display:none !important;
+  }  
+}
+
+.kg-visible-xx{
+  @media (max-width: @screen-xx-max){ 
+    display:block !important;
+  }  
+}
+
+.kg-hidden-xs{
+  @media (max-width: @screen-xs-max){ 
+    display:none !important;
+  }  
+}
+
+.kg-visible-xs{
+  @media (max-width: @screen-xs-max){ 
+    display:block !important;
+  }  
+}
+
+.kg-hidden-sm{
+  @media (max-width: @screen-sm-max){ 
+    display:none !important;
+  }  
+}
+
+.kg-visible-sm{
+  @media (max-width: @screen-sm-max){ 
+    display:block !important;
+  }  
+}
+
+.kg-hidden-md{
+  @media (max-width: @screen-md-max){ 
+    display:none !important;
+  }  
+}
+
+.kg-visible-md{
+  @media (max-width: @screen-md-max){ 
+    display:block !important;
+  }  
+}
+
+
+.kg-hidden-xs-{
+  @media (min-width: @screen-xs-min){ 
+    display:none !important;
+  }
+}
+
+.kg-hidden-xs-xs{
+  @media (max-width: @screen-xs-max) and (min-width: @screen-xs-min){ 
+    display:none !important;
+  }
+}
+
+.kg-hidden-xs-sm{
+  @media (max-width: @screen-sm-max) and (min-width: @screen-xs-min){ 
+    display:none !important;
+  }
+}
+
+.kg-hidden-xs-md{
+  @media (max-width: @screen-md-max) and (min-width: @screen-xs-min){ 
+    display:none !important;
+  }
+}
+
+.kg-visible-xs-{
+  @media (min-width: @screen-xs-min){ 
+    display:block !important;
+  }
+}
+
+.kg-visible-xs-xs{
+  @media (max-width: @screen-xs-max) and (min-width: @screen-xs-min){ 
+    display:block !important;
+  }
+}
+
+.kg-visible-xs-sm{
+  @media (max-width: @screen-sm-max) and (min-width: @screen-xs-min){ 
+    display:block !important;
+  }
+}
+
+.kg-visible-xs-md{
+  @media (max-width: @screen-md-max) and (min-width: @screen-xs-min){ 
+    display:block !important;
+  }
+}
+
+
+
+.kg-hidden-sm-{
+  @media (min-width: @screen-sm-min){ 
+    display:none !important;
+  }
+}
+
+.kg-hidden-sm-sm{
+  @media (max-width: @screen-sm-max) and (min-width: @screen-sm-min){ 
+    display:none !important;
+  }
+}
+
+.kg-hidden-sm-md{
+  @media (max-width: @screen-md-max) and (min-width: @screen-sm-min){ 
+    display:none !important;
+  }
+}
+
+.kg-visible-sm-{
+  @media (min-width: @screen-sm-min){ 
+    display:block !important;
+  }
+}
+
+.kg-visible-sm-sm{
+  @media (max-width: @screen-sm-max) and (min-width: @screen-sm-min){ 
+    display:block !important;
+  }
+}
+
+.kg-visible-sm-md{
+  @media (max-width: @screen-md-max) and (min-width: @screen-sm-min){ 
+    display:block !important;
+  }
+}
+
+.kg-hidden-md-{
+  @media (min-width: @screen-md-min){ 
+    display:none !important;
+  }
+}
+
+.kg-hidden-md-md{
+  @media (max-width: @screen-md-max) and (min-width: @screen-md-min){ 
+    display:none !important;
+  }
+}
+
+.kg-visible-md-{
+  @media (min-width: @screen-md-min){ 
+    display:block !important;
+  }
+}
+
+.kg-visible-md-md{
+  @media (max-width: @screen-md-max) and (min-width: @screen-md-min){ 
+    display:block !important;
+  }
+}

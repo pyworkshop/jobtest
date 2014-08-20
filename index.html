@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en" ng-app="unleashedJob">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="My job test for Unleashed Software">
+    <title>My Job for Unleashed Software</title>
+    <link rel="stylesheet" href="media/css/job_test.css" type="text/css">
+  </head>
+
+  <body class="angular" ng-controller="MainCtrl" ng-class="{'mode_empty':owner.mode==0, 'mode_list':owner.mode==1, 'mode_detail':owner.mode==2}">
+    <script type="text/ng-template" id="repo-list.html"></script>
+    <header class="jobtest-header">
+      <a class="site-logo pure-hidden-xx"></a>
+      <h3 class="site-title">Github API Test for Unleashed</h3>
+    </header>
+
+
+    <div class="content-layout">
+
+      <aside class="repos-area">
+        <div class="search-box">
+          <div>
+            <div class="input-group-rounded kg-g">
+    	      <input type="text" class="form-control kg-u" placeholder="Enter a Geek Name" ng-model="owner.username">
+	      <button class="kg-u kg-button" ng-click="getRepos()"><i class="fa fa-search"></i></button>
+            </div>
+	    <p>e.g. visionmedia, gvanrossum</p>
+          </div>
+        </div>
+
+        <div class="kg-g repo-items">
+	  <div class="kg-u-1 repo-item" ng-repeat="repo in owner.repos">
+	    <div class="icon"><i class="fa"  ng-class="{true: 'fa-code-fork', false: 'fa-github'}[repo.fork]"></i></div>
+	    
+	    <div class="info">
+	      <p>
+  	        <span>{{repo.language}}</span> 
+	        <span><i class="fa fa-star"></i> {{repo.stargazers_count}}</span>
+	        <span><i class="fa fa-code-fork"></i> {{repo.forks_count}}</span>
+	      </p>
+	      <h4><a href="#/owner/{{owner.username}}/repo/{{repo.name}}" class="name">{{repo.name}}</a></h4>
+              <div class="desc">{{repo.description}}</div>
+	    </div>
+
+	  </div>
+	</div>
+      </aside>
+
+      <div ng-view class="detail-area"></div>
+    </div>
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-google-chart/ng-google-chart.js"></script>
+    <script src="media/js/app.js"></script>
+    <script src="media/js/controllers.js"></script>
+    <script src="media/js/services.js"></script>
+
+  </body>
+</html>
