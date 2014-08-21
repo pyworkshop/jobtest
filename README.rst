@@ -15,5 +15,5 @@ How to run it?
 2. open "localhost:8000"
 
 
-And you can view it on "https://42.62.29.113:8000/index.html",
+And you can view it on "http://42.62.29.113:8000/index.html",
 Thanks.
